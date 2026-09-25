@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * (block states, entity data, chunk data) without proper synchronization, it violates Folia's
  * thread-safety contract and causes undefined behavior or crashes.</p>
  *
- * <p>The Rapier JNI layer also may cache Java object references across callbacks,
+ * <p>The Rapier JNI layer may also cache Java object references across callbacks,
  * creating subtle memory visibility issues between the physics thread and region threads.</p>
  *
  * <h2>Solution</h2>
