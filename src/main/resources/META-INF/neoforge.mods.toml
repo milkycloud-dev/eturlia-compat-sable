@@ -1,0 +1,52 @@
+modLoader="javafml"
+loaderVersion="[3,)"
+license="All Rights Reserved"
+
+[[mods]]
+    modId="eturlia_compat_sable"
+    version="0.1.0"
+    displayName="Eturlia Compat: Sable"
+    authors="milkycloud-dev"
+    logoFile="eturlia_compat_sable_icon.png"
+    displayURL="https://github.com/milkycloud-dev/eturlia-compat-sable"
+    description='''
+    WORK IN PROGRESS: this module does not do anything yet.
+
+    Intended as a compatibility layer for Sable and Create Aeronautics on Eturlia
+    (Folia-based) regionized servers: Rapier physics (JNI) against Folia's per-region
+    threading, cross-region sub-level management and JNI callback auditing. All handlers
+    are currently stubs and no mixins are applied.
+    '''
+
+[[dependencies.eturlia_compat_sable]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.1,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.eturlia_compat_sable]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21.1,1.21.2)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.eturlia_compat_sable]]
+    modId="sable"
+    type="required"
+    versionRange="[0.1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.eturlia_compat_sable]]
+    modId="create_aeronautics"
+    type="required"
+    versionRange="[0.1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+# No [[mixins]] entry: the mixin config listed six classes (physics/sublevel/vehicle) and a
+# mixin plugin that do not exist in this source tree. With "required": true that made the
+# module fail hard at load time instead of no-opping.
+# Re-add the config together with the actual mixin classes.
